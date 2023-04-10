@@ -23,13 +23,13 @@
 </head>
 
 <body>
-<!-- <?php
+    <!-- <?php
         $insertconf = false;
         if (isset($_POST['name'])){
         $server="localhost";
         $user="root";
         $password="";
-        $dbname="travel";
+        $dbname="Data";
         
         $con = mysqli_connect($server,$user,$password,$dbname);
         
@@ -37,14 +37,10 @@
             die("Connection with database not happening due to". mysqli_connect_error());
         }
         $name =$_POST['name'];
-        $email =$_POST['email'];
-        $mobile =$_POST['mobile'];
-        $from =$_POST['from'];
-        $to =$_POST['to'];
-        $date =$_POST['date'];
-        $members =$_POST['members'];
+        $username =$_POST['username'];
+        $password =$_POST['password'];
 
-        $sql_query = "INSERT INTO `travel` (`Name`, `Mobile`, `email`, `From`, `To`, `Date`, `Members`) VALUES ('$name', '$email', '$mobile', '$from', '$to', '$date', '$members');";
+        $sql_query = "INSERT INTO `sl` (`Name`, `Username`, `Password`) VALUES ('$name', '$username', '$password');";
 
         if ($con->query($sql_query) ==true){
             $insertconf=true;
@@ -75,7 +71,7 @@
                                             <li><a href="event.html">Events</a></li>
                                             <li><a href="about.html">About</a></li>
                                             <li><a href="events_details.html">Details</a></li> </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="contact.php">Contact</a></li>
 
                                             <li class="button-header">
                                                 <a href="#" class="header-btn"> <i class="fa fa-phone"></i></a>
@@ -110,7 +106,7 @@
             </div>
         </div>
 
-        
+
         <section class="contact-section" id="contact-section">
             <div class="container">
                 <div class="row">
@@ -118,49 +114,49 @@
                         <h2 class="contact-title">Book Your Destination</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form  action="contact.php" method="post" >
+                        <form class="form-contact contact_form" action="contact_process.php" method="post"
+                            id="contactForm" novalidate="novalidate">
                             <div class="row">
                                 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="name" id="name" type="text" placeholder="Enter your name" required>
+                                        <input class="form-control valid" name="name" id="name" type="text" placeholder="Enter your name">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email" placeholder="Email" required>
+                                        <input class="form-control valid" name="email" id="email" type="email" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="mobile" id="mobile" type="text" placeholder="Mobile Number" required>
+                                        <input class="form-control valid" name="email" id="from" type="text" placeholder="From">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="from" id="from" type="text" placeholder="From" required>
+                                        <input class="form-control valid" name="email" id="to" type="text" placeholder="To">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="to" id="to" type="text" placeholder="To" required>
+                                        <input class="form-control valid" name="email" id="date" type="date" placeholder="Date">
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-12">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="date" id="date" type="date" placeholder="Date" required>
+                                        <input class="form-control" name="subject" id="subject" type="text" placeholder="Enter Subject">
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-12">
                                     <div class="form-group">
-                                        <input class="form-control" name="members" id="members" type="text" placeholder="Enter Members" required>
+                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" placeholder=" Enter Message"></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group mt-3">
-                                <input type="submit" class="button button-contactForm boxed-btn" ></input>
+                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
                             </div>
-
                         </form>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
